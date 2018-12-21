@@ -38,14 +38,21 @@ class MongoShell:
     def dump_single_db(self, file_path):
         export_cmd = "mongodump -u %s -p %s --authenticationDatabase %s -d %s -o %s" % (self.user, self.pwd, self.db, self.db, file_path)
         os.system(export_cmd)
-    def store(self):
-        pass
-    def query(self):
-        pass
+    def store(self, folder_path):
+        export_cmd = "mongorestore -u %s -p %s -d %s %s" % (self.user, self.pwd, self.db, folder_path)
+        os.system(export_cmd)
 
-collections = ['iflows', 'company_apps', 'group_users', 'groups', 'iflow_handle_histories']
-condition = '{company_id: "561f72fbe419be013b8b468e"}'
+    def dropDataBase(self):
+        export_cmd = "mongo -u %s -p %s -d %s  --eval '%s'" % (self.user, self.pwd, self.db, "printjson(db.iflows.count())");
+        os.system(export_cmd)
+    def query(self, query):
+        os.system(query)
+
+# collections = ['iflows', 'company_apps', 'group_users', 'groups', 'iflow_handle_histories']
+# condition = '{company_id: "561f72fbe419be013b8b468e"}'
+# shell_obj = MongoShell()
+# for collection in collections:
+#     shell_obj.setParams(collection, condition)
+#     shell_obj.export()
 shell_obj = MongoShell()
-for collection in collections:
-    shell_obj.setParams(collection, condition)
-    shell_obj.export()
+shell_obj.dropDataBase()
