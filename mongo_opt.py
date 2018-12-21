@@ -43,7 +43,7 @@ class MongoShell:
         os.system(export_cmd)
 
     def dropDataBase(self):
-        export_cmd = "mongo -u %s -p %s -d %s  --eval '%s'" % (self.user, self.pwd, self.db, "printjson(db.iflows.count())");
+        export_cmd = "mongo %s -u %s -p %s  --eval '%s'" % ( self.db, self.user, self.pwd, "printjson(db.iflows.count())");
         os.system(export_cmd)
     def query(self, query):
         os.system(query)
