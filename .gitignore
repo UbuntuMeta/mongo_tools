@@ -1,7 +1,4 @@
 .idea/
-.DS_Store
-node_modules/
-.config.production/
-shinetest.js
 data.json
 __pycache__/
+config.json
