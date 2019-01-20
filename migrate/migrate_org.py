@@ -20,8 +20,7 @@ for collection in simple_collections:
 # script_file = "getUserIds.js"
 # out_file = "./getUserID.txt"
 # mongo.runScript(script_file, out_file)
-content = getUserIdInCondtion(mongo)
-print(content)
+
 # 获取满足条件的user_id结果的txt文档
 def getUserIdInCondtion(mongo_shell):
     mongo_shell.runScript('../js_scripts/get_user_id_from_users.js', './userids.txt')
@@ -30,3 +29,6 @@ def getUserIdInCondtion(mongo_shell):
     pure_content = file.read()
     file.close()
     return pure_content
+
+content = getUserIdInCondtion(mongo)
+print(content)
