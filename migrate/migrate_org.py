@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
-sys.path.append(r'E:/pythonwork/mongo_tools')
+sys.path.append(r'/home/rduser/bakmongo/mongo_tools')
 from mongo_opt import MongoShell
 
 # 先导出groups,users,group_users,company_users,groups,保存到备份文件夹
@@ -23,7 +23,7 @@ for collection in simple_collections:
 
 # 获取满足条件的user_id结果的txt文档
 def getUserIdInCondtion(mongo_shell):
-    mongo_shell.runScript('../js_scripts/get_user_id_from_users.js', './userids.txt')
+    mongo_shell.runScript('/home/rduser/bakmongo/mongo_tools/js_scripts/get_user_id_from_users.js', './userids.txt')
     #{"_id":{$in:[ObjectId("5ae96286f871c94a74741562"),ObjectId("5c403985f871c95522681694")]}}
     file = open('./userids.txt', 'r', encoding='utf-8')
     file_new = open('./user_ids.txt', 'r', encoding='utf-8')
