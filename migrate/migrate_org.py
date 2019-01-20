@@ -34,9 +34,9 @@ def getUserIdInCondtion(mongo_shell):
             line_no +=1
             continue        
         file_new.write(line)
-        line_no++
+        line_no+=1
     file.close()
     file_new.close()
-    return pure_content
+    return ''
 
 content = getUserIdInCondtion(mongo)
