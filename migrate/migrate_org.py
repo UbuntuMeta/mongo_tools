@@ -26,7 +26,7 @@ def getUserIdInCondtion(mongo_shell):
     mongo_shell.runScript('/home/rduser/bakmongo/mongo_tools/js_scripts/get_user_id_from_users.js', './userids.txt')
     #{"_id":{$in:[ObjectId("5ae96286f871c94a74741562"),ObjectId("5c403985f871c95522681694")]}}
     file = open('./userids.txt', 'r', encoding='utf-8')
-    file_new = open('./user_ids.txt', 'r', encoding='utf-8')
+    file_new = open('./user_ids.txt', 'w+', encoding='utf-8')
     # 将前两行删除存入新文件
     line_no = 1
     for line in file.readlines():
