@@ -14,7 +14,7 @@ print(mongo)
 mongo.setStorePath('../savebak')
 for collection in simple_collections:
     mongo.setParams(collection, condition)
-    #mongo.export()
+    mongo.export()
 #
 # # 获取user_id文件
 # script_file = "getUserIds.js"
